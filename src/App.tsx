@@ -1,29 +1,13 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import { Patient } from 'fhir/r4'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-
-  let patient: Patient = {
-    id: '1',
-    resourceType: 'Patient',
-    name: [
-      {
-        family: 'Doe',
-        given: ['John'],
-        prefix: ['Mr.'],
-      },
-    ],
-  };
-
   return (
     <>
       <div>
-        <h1>Patient</h1>
-        <p>{patient.name?.[0]?.prefix?.[0] ?? 'N/A'}</p>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>

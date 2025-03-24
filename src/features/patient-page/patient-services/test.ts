@@ -1,11 +1,15 @@
-import axios from 'axios';
-import PatientService from './patient-service';
-import { Patient } from './model';
+import { Patient } from 'fhir/r4';
+import { patientService } from './patient-service';
 
-jest.mock('axios');
-const mockedAxios = axios as jest.Mocked<typeof axios>;
+// Mock fetch globally
+global.fetch = jest.fn();
 
 describe('PatientService', () => {
+  // Setup and teardown
+  beforeEach(() => {
+    jest.resetAllMocks();
+  });
+
   const patient: Patient = {
     resourceType: 'Patient',
     name: [{ given: ['John'], family: 'Doe' }],
@@ -14,54 +18,90 @@ describe('PatientService', () => {
   };
 
   it('should create a patient', async () => {
-    mockedAxios.post.mockResolvedValue({ data: patient });
+    // Mock fetch response
+    (fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => patient,
+    });
 
-    const result = await PatientService.createPatient(patient);
+    const result = await patientService.createPatient(patient);
 
     expect(result).toEqual(patient);
-    expect(mockedAxios.post).toHaveBeenCalledWith(
+    expect(fetch).toHaveBeenCalledWith(
       'http://hapi.fhir.org/baseR4/Patient',
-      patient,
-      { headers: { 'Content-Type': 'application/fhir+json' } }
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/fhir+json' },
+        body: JSON.stringify(patient)
+      }
     );
   });
 
   it('should get a patient by id', async () => {
-    mockedAxios.get.mockResolvedValue({ data: patient });
+    (fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => patient,
+    });
 
-    const result = await PatientService.getPatient('123');
+    const result = await patientService.getPatient('123');
 
     expect(result).toEqual(patient);
-    expect(mockedAxios.get).toHaveBeenCalledWith(
+    expect(fetch).toHaveBeenCalledWith(
       'http://hapi.fhir.org/baseR4/Patient/123',
-      { headers: { 'Accept': 'application/fhir+json' } }
+      {
+        method: 'GET',
+        headers: { 'Accept': 'application/fhir+json' }
+      }
     );
   });
 
   it('should search patients', async () => {
-    const patients = [patient];
-    mockedAxios.get.mockResolvedValue({ data: patients });
+    const bundleResponse = {
+      entry: [
+        { resource: patient }
+      ]
+    };
+    
+    (fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => bundleResponse,
+    });
 
-    const result = await PatientService.searchPatients({ name: 'John' });
+    const result = await patientService.searchPatients({ name: 'John' });
 
-    expect(result).toEqual(patients);
-    expect(mockedAxios.get).toHaveBeenCalledWith(
-      'http://hapi.fhir.org/baseR4/Patient',
+    expect(result).toEqual([patient]);
+    expect(fetch).toHaveBeenCalledWith(
+      'http://hapi.fhir.org/baseR4/Patient?name=John',
       {
-        params: { name: 'John' },
+        method: 'GET',
         headers: { 'Accept': 'application/fhir+json' }
       }
     );
   });
 
   it('should delete a patient by id', async () => {
-    mockedAxios.delete.mockResolvedValue({});
+    (fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true
+    });
 
-    await PatientService.deletePatient('123');
+    await patientService.deletePatient('123');
 
-    expect(mockedAxios.delete).toHaveBeenCalledWith(
+    expect(fetch).toHaveBeenCalledWith(
       'http://hapi.fhir.org/baseR4/Patient/123',
-      { headers: { 'Accept': 'application/fhir+json' } }
+      {
+        method: 'DELETE',
+        headers: { 'Accept': 'application/fhir+json' }
+      }
     );
+  });
+
+  it('should handle fetch errors properly', async () => {
+    (fetch as jest.Mock).mockResolvedValueOnce({
+      ok: false,
+      status: 404,
+      statusText: 'Not Found'
+    });
+
+    await expect(patientService.getPatient('nonexistent')).rejects.toThrow('Error: 404 - Not Found');
   });
 });
