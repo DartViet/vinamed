@@ -22,6 +22,9 @@ const CreatePatient: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    let dateTime = new Date(formData.dob);
+
+    let dob = dateTime.toISOString().split('T')[0];
     let patient: Patient = {
       resourceType: "Patient",
       name: [
@@ -31,7 +34,7 @@ const CreatePatient: React.FC = () => {
           given: [formData.givenName]
         }
       ],
-      birthDate: formData.dob,
+      birthDate: dob,
       address: [
         {
           use: "home",

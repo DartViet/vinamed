@@ -57,7 +57,6 @@ const SearchPatientPage: React.FC = () => {
       }
       
       if (searchCriteria.birthDate.trim()) {
-        console.log(searchCriteria.birthDate);
         queryParams['birthdate'] = searchCriteria.birthDate.trim();
       }
 
@@ -83,10 +82,6 @@ const SearchPatientPage: React.FC = () => {
     navigate(`/patients/${id}`);
   };
 
-  const handleEditPatient = (id: string) => {
-    navigate(`/patients/${id}`);
-  };
-
   const handleDeletePatient = async (id: string) => {
     if (window.confirm('Are you sure you want to delete this patient?')) {
       try {
@@ -105,7 +100,11 @@ const SearchPatientPage: React.FC = () => {
   const formatDate = (dateString: string | undefined) => {
     if (!dateString) return '';
     try {
-      return new Date(dateString).toLocaleDateString();
+      let year = dateString.split('T')[0].split('-')[0];
+      let month = dateString.split('T')[0].split('-')[1];
+      let day = dateString.split('T')[0].split('-')[2];
+      let date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+      return date.toDateString();
     } catch {
       return dateString;
     }
@@ -224,12 +223,6 @@ const SearchPatientPage: React.FC = () => {
                           onClick={() => handleViewPatient(patient.id!)}
                         >
                           View
-                        </button>
-                        <button 
-                          className="btn btn-outline-secondary" 
-                          onClick={() => handleEditPatient(patient.id!)}
-                        >
-                          Edit
                         </button>
                         <button 
                           className="btn btn-outline-danger" 

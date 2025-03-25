@@ -32,13 +32,15 @@ const ReadEditPatientPage: React.FC = () => {
       try {
         setLoading(true);
         const fetchedPatient = await patientService.getPatient(id);
+        let utcBirthDate = fetchedPatient.birthDate?.split('T')[0];
+        let dob = utcBirthDate;
         setPatient(fetchedPatient);
         
         // Extract patient data for the form
         setFormData({
           givenName: fetchedPatient.name?.[0]?.given?.[0] || '',
           familyName: fetchedPatient.name?.[0]?.family || '',
-          dob: fetchedPatient.birthDate || '',
+          dob: dob || '',
           gender: fetchedPatient.gender || '',
           phone: fetchedPatient.telecom?.find(t => t.system === 'phone')?.value || '',
           address: fetchedPatient.address?.[0]?.text || '',
