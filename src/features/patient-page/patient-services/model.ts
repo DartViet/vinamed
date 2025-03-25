@@ -27,6 +27,7 @@ export interface HumanName {
   }
   
   export interface Patient {
+    status: number;
     resourceType: 'Patient';
     id?: string;
     identifier?: {

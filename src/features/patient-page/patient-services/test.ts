@@ -1,6 +1,6 @@
 import axios from 'axios';
-import PatientService from './patient-service';
-import { Patient } from './model';
+import { Patient } from 'fhir/r4';
+import { patientService } from './patient-service';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -16,7 +16,7 @@ describe('PatientService', () => {
   it('should create a patient', async () => {
     mockedAxios.post.mockResolvedValue({ data: patient });
 
-    const result = await PatientService.createPatient(patient);
+    const result = await patientService.createPatient(patient);
 
     expect(result).toEqual(patient);
     expect(mockedAxios.post).toHaveBeenCalledWith(
@@ -29,7 +29,7 @@ describe('PatientService', () => {
   it('should get a patient by id', async () => {
     mockedAxios.get.mockResolvedValue({ data: patient });
 
-    const result = await PatientService.getPatient('123');
+    const result = await patientService.getPatient('123');
 
     expect(result).toEqual(patient);
     expect(mockedAxios.get).toHaveBeenCalledWith(
@@ -42,7 +42,7 @@ describe('PatientService', () => {
     const patients = [patient];
     mockedAxios.get.mockResolvedValue({ data: patients });
 
-    const result = await PatientService.searchPatients({ name: 'John' });
+    const result = await patientService.searchPatients({ name: 'John' });
 
     expect(result).toEqual(patients);
     expect(mockedAxios.get).toHaveBeenCalledWith(
@@ -57,7 +57,7 @@ describe('PatientService', () => {
   it('should delete a patient by id', async () => {
     mockedAxios.delete.mockResolvedValue({});
 
-    await PatientService.deletePatient('123');
+    await patientService.deletePatient('123');
 
     expect(mockedAxios.delete).toHaveBeenCalledWith(
       'http://hapi.fhir.org/baseR4/Patient/123',
