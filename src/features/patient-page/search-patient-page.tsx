@@ -222,13 +222,13 @@ const SearchPatientPage: React.FC = () => {
                           className="btn btn-outline-primary" 
                           onClick={() => handleViewPatient(patient.id!)}
                         >
-                          View
+                          Xem/Chỉnh Sửa
                         </button>
                         <button 
                           className="btn btn-outline-danger" 
                           onClick={() => handleDeletePatient(patient.id!)}
                         >
-                          Delete
+                          Xóa
                         </button>
                       </div>
                     </td>
