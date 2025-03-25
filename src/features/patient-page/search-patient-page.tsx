@@ -141,7 +141,7 @@ const SearchPatientPage: React.FC = () => {
           </div>
           
           <div className="col-md-6">
-            <label htmlFor="phoneNumber" className="form-label">Phone Number</label>
+            <label htmlFor="phoneNumber" className="form-label">Số Điện Thoại</label>
             <input
               type="tel"
               className="form-control"
@@ -153,7 +153,7 @@ const SearchPatientPage: React.FC = () => {
           </div>
           
           <div className="col-md-6">
-            <label htmlFor="birthDate" className="form-label">Birth Date</label>
+            <label htmlFor="birthDate" className="form-label">Ngày Sinh (tháng, ngày, năm)</label>
             <input
               type="date"
               className="form-control"
