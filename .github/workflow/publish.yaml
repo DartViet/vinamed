@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main # The branch name your are commit the new changes
-      - task/*
-      - feature/*
+      - task.*
+      - feature.*
 
 jobs:
   build:
