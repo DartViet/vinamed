@@ -57,6 +57,7 @@ const SearchPatientPage: React.FC = () => {
       }
       
       if (searchCriteria.birthDate.trim()) {
+        console.log(searchCriteria.birthDate);
         queryParams['birthdate'] = searchCriteria.birthDate.trim();
       }
 

@@ -92,8 +92,19 @@ class PatientService {
       
       // Add query parameters to URL
       if (query) {
+        if(Object.keys(query).includes('birthdate')){
+          let date = new Date(query['birthdate']);
+          let dateEalier = new Date(date.getTime() - 24*60*60*1000);
+          let dateLater = new Date(date.getTime() + 24*60*60*1000);
+          let dateEalierString = dateEalier.toISOString().split('T')[0];
+          let dateLaterString = dateLater.toISOString().split('T')[0];
+          url.searchParams.append('birthdate', `ge${dateEalierString}`);
+          url.searchParams.append('birthdate', `le${dateLaterString}`);
+        }
         Object.keys(query).forEach(key => {
-          url.searchParams.append(key, query[key]);
+          if (key !== 'birthdate'){
+            url.searchParams.append(key, query[key]);
+          }
         });
       }
       
