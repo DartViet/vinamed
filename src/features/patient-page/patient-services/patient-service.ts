@@ -1,14 +1,15 @@
 import { Patient } from 'fhir/r4';
 
-const FHIR_SERVER_BASE_URL = 'http://hapi.fhir.org/baseR4';
+const FHIR_SERVER_BASE_URL = 'https://ltd.zapto.org/fhir';
 
 class PatientService {
+  // Private static instance variable
   private static instance: PatientService;
 
-  // Private constructor to prevent direct instantiation
+  // Private constructor to prevent instantiation from outside
   private constructor() {}
 
-  // Static method to get the singleton instance
+  // Public static method to get the singleton instance
   public static getInstance(): PatientService {
     if (!PatientService.instance) {
       PatientService.instance = new PatientService();
@@ -16,7 +17,7 @@ class PatientService {
     return PatientService.instance;
   }
 
-  async createPatient(patient: Patient): Promise<Patient> {
+  async createPatient(patient: Patient): Promise<any> {
     try {
       const response = await fetch(`${FHIR_SERVER_BASE_URL}/Patient`, {
         method: 'POST',
@@ -29,8 +30,8 @@ class PatientService {
       if (!response.ok) {
         throw new Error(`Error: ${response.status} - ${response.statusText}`);
       }
-      
-      return await response.json();
+      let patientResult = await response.json();
+      return patientResult;
     } catch (error) {
       console.error('Error creating patient:', error);
       throw error;
@@ -57,6 +58,33 @@ class PatientService {
     }
   }
 
+  async updatePatient(id: string, patient: Patient): Promise<Patient> {
+    try {
+      // Ensure the patient has the correct ID
+      const patientToUpdate = {
+        ...patient,
+        id: id
+      };
+
+      const response = await fetch(`${FHIR_SERVER_BASE_URL}/Patient/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/fhir+json'
+        },
+        body: JSON.stringify(patientToUpdate)
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+      }
+      
+      return await response.json();
+    } catch (error) {
+      console.error('Error updating patient:', error);
+      throw error;
+    }
+  }
+
   async searchPatients(query: any): Promise<Patient[]> {
     try {
       // Build URL with search parameters
@@ -64,8 +92,19 @@ class PatientService {
       
       // Add query parameters to URL
       if (query) {
+        if(Object.keys(query).includes('birthdate')){
+          let date = new Date(query['birthdate']);
+          let dateEalier = new Date(date.getTime() - 24*60*60*1000);
+          let dateLater = new Date(date.getTime() + 24*60*60*1000);
+          let dateEalierString = dateEalier.toISOString().split('T')[0];
+          let dateLaterString = dateLater.toISOString().split('T')[0];
+          url.searchParams.append('birthdate', `ge${dateEalierString}`);
+          url.searchParams.append('birthdate', `le${dateLaterString}`);
+        }
         Object.keys(query).forEach(key => {
-          url.searchParams.append(key, query[key]);
+          if (key !== 'birthdate'){
+            url.searchParams.append(key, query[key]);
+          }
         });
       }
       
@@ -81,6 +120,7 @@ class PatientService {
       }
       
       const result = await response.json();
+      // Extract patient resources from FHIR bundle
       return result.entry ? result.entry.map((entry: any) => entry.resource) : [];
     } catch (error) {
       console.error('Error searching patients:', error);
@@ -107,5 +147,5 @@ class PatientService {
   }
 }
 
-// Export singleton instance
+// Create and export the singleton instance
 export const patientService = PatientService.getInstance();
