@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Patient } from 'fhir/r4';
 import { patientService } from './patient-services/patient-service';
+import { useTranslation } from 'react-i18next';
 
 const SearchPatientPage: React.FC = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [searchCriteria, setSearchCriteria] = useState({
     givenName: '',
@@ -112,7 +114,7 @@ const SearchPatientPage: React.FC = () => {
 
   return (
     <div className="container mt-5">
-      <h2 className="mb-4">Tìm Bệnh Nhân</h2>
+      <h2 className="mb-4">{t('searchPatient')}</h2>
       
       <form onSubmit={handleSearch} className="mb-5">
         <div className="row g-3">
@@ -228,7 +230,7 @@ const SearchPatientPage: React.FC = () => {
                           className="btn btn-outline-danger" 
                           onClick={() => handleDeletePatient(patient.id!)}
                         >
-                          Xóa
+                          {t('Delete')}
                         </button>
                       </div>
                     </td>

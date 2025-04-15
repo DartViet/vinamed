@@ -1,0 +1,16 @@
+.language-switcher-btn {
+    border-radius: 1rem;
+    border: 1px solid #ccc;
+    padding: 0.4rem 1rem;
+    margin-right: 0.5rem;
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: normal;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .language-switcher-btn.active {
+    background-color: #007bff;
+    color: #fff;
+  }

@@ -2,6 +2,10 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 
+// Localization
+import { I18nextProvider } from 'react-i18next' 
+import i18n from './i18n'     
+
 // Patient pages
 import CreatePatientPage from './features/patient-page/create-patient-page.tsx';
 import ReadEditPatientPage from './features/patient-page/read-patient-page.tsx';
@@ -49,6 +53,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <I18nextProvider i18n={i18n}> {/* [wrap your RouterProvider here] */}
+      <RouterProvider router={router} />
+    </I18nextProvider>
   </StrictMode>,
 )

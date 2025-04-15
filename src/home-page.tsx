@@ -1,11 +1,17 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
+import LanguageSwitcher from "./features/ui/language-switcher"
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
     <div className="container">
+     
+      <div className="d-flex justify-content-end mt-3 mb-2">
+        <LanguageSwitcher />
+      </div>
+
       <header className="py-5 text-center">
         <h1 className="display-4">VinaMe Health Platform</h1>
         <p className="lead text-muted">Manage patients, practitioners, and healthcare organizations in one place</p>
