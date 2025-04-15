@@ -1,4 +1,30 @@
 {
-    "delete": "Xóa",
-    "searchPatient": "Tìm kiếm bệnh nhân"
+    "homePage": {
+        "title": "Nền tảng Y tế VinaMe",
+        "description": "Quản lý bệnh nhân, nhân viên y tế và tổ chức y tế tại cùng một nơi",
+        "patient": {
+            "patient": "Quản lý Bệnh nhân",
+            "description": "Tạo và quản lý hồ sơ bệnh nhân, tìm kiếm bệnh nhân và xem thông tin sức khỏe chi tiết.",
+            "create": "Tạo Bệnh nhân Mới",
+            "search": "Tìm kiếm Bệnh nhân"
+        },
+        "practitioner": {
+            "practitioner": "Quản lý Nhân viên Y tế",
+            "description": "Tạo và quản lý nhân viên y tế, tìm kiếm nhân viên và xem thông tin trình độ chi tiết.",
+            "create": "Tạo Nhân viên Y tế Mới",
+            "search": "Tìm kiếm Nhân viên Y tế"
+        },
+        "organization": {
+            "organization": "Quản lý Tổ chức",
+            "description": "Tạo và quản lý tổ chức y tế, tìm kiếm tổ chức và xem thông tin tổ chức chi tiết.",
+            "create": "Tạo Tổ chức Mới",
+            "search": "Tìm kiếm Tổ chức"
+        },
+        "quickAccess": {
+            "quickAccess": "Truy cập nhanh",
+            "allPatients": "Tất cả Bệnh nhân",
+            "allPractitioners": "Tất cả Nhân viên Y tế",
+            "allOrganizations": "Tất cả Tổ chức"
+        }
+    }
 }

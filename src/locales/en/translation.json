@@ -1,4 +1,30 @@
-{
-    "delete": "Delete",
-    "searchPatient": "Search Patient"
+{   
+    "homePage": {
+        "title": "VinaMe Health Platform",
+        "description": "Manage patients, practitioners, and healthcare organizations in one place",
+        "patient": {
+            "patient": "Patient Management",
+            "description": "Create and managae patient records, search for patients, and view detailed health information.",
+            "create": "Create New Patient",
+            "search": "Search Patient"
+        },
+        "practitioner": {
+            "practitioner": "Practitioner Management",
+            "description": "Create and manage healthcare practitioner, search for practitioners, and view detailed qualification information.",
+            "create": "Create New Practitioner",
+            "search": "Search Practitioner"
+        },
+        "organization": {
+            "organization": "Organization Management",
+            "description": "Create and manage healthcare organization, search for organizations, and view detailed organization information.",
+            "create": "Create New Organization",
+            "search": "Search Organization"
+        },
+        "quickAccess": {
+            "quickAccess": "Quick Access",
+            "allPatients": "All Patients",
+            "allPractitioners": "All Practitioners",
+            "allOrganizations": "All Organizations"
+        }
+    }
 }
