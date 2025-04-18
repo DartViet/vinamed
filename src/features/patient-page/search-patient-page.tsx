@@ -64,7 +64,7 @@ const SearchPatientPage: React.FC = () => {
 
       // Check if any search criteria were provided
       if (Object.keys(queryParams).length === 0) {
-        setError('Please enter at least one search criteria');
+        setError(t('searchPatient.error.emptySearch'));
         setLoading(false);
         return;
       }
@@ -75,7 +75,7 @@ const SearchPatientPage: React.FC = () => {
       setLoading(false);
     } catch (err) {
       console.error('Error searching patients:', err);
-      setError('An error occurred while searching. Please try again.');
+      setError(t('searchPatient.error.searchFailed'));
       setLoading(false);
     }
   };
@@ -85,16 +85,16 @@ const SearchPatientPage: React.FC = () => {
   };
 
   const handleDeletePatient = async (id: string) => {
-    if (window.confirm('Are you sure you want to delete this patient?')) {
+    if (window.confirm(t('searchPatient.error.deleteConfirm'))) {
       try {
         await patientService.deletePatient(id);
         // Refresh the search results after deleting
         const updatedPatients = patients.filter(patient => patient.id !== id);
         setPatients(updatedPatients);
-        alert('Patient deleted successfully');
+        alert(t('searchPatient.error.deleteSuccess'));
       } catch (err) {
         console.error('Error deleting patient:', err);
-        alert('Failed to delete patient');
+        alert(t('searchPatient.error.deleteFailed'));
       }
     }
   };
@@ -114,36 +114,36 @@ const SearchPatientPage: React.FC = () => {
 
   return (
     <div className="container mt-5">
-      <h2 className="mb-4">{t('searchPatient')}</h2>
+      <h2 className="mb-4">{t('searchPatient.title')}</h2>
       
       <form onSubmit={handleSearch} className="mb-5">
         <div className="row g-3">
           <div className="col-md-6">
-            <label htmlFor="givenName" className="form-label">Tên</label>
+            <label htmlFor="givenName" className="form-label">{t('searchPatient.givenName')}</label>
             <input
               type="text"
               className="form-control"
               id="givenName"
               value={searchCriteria.givenName}
               onChange={handleChange}
-              placeholder="Tên"
+              placeholder={t('searchPatient.givenName')}
             />
           </div>
           
           <div className="col-md-6">
-            <label htmlFor="familyName" className="form-label">Họ</label>
+            <label htmlFor="familyName" className="form-label">{t('searchPatient.familyName')}</label>
             <input
               type="text"
               className="form-control"
               id="familyName"
               value={searchCriteria.familyName}
               onChange={handleChange}
-              placeholder="Họ"
+              placeholder={t('searchPatient.familyName')}
             />
           </div>
           
           <div className="col-md-6">
-            <label htmlFor="phoneNumber" className="form-label">Số Điện Thoại</label>
+            <label htmlFor="phoneNumber" className="form-label">{t('searchPatient.phoneNumber')}</label>
             <input
               type="tel"
               className="form-control"
@@ -155,7 +155,7 @@ const SearchPatientPage: React.FC = () => {
           </div>
           
           <div className="col-md-6">
-            <label htmlFor="birthDate" className="form-label">Ngày Sinh (tháng, ngày, năm)</label>
+            <label htmlFor="birthDate" className="form-label">{t('searchPatient.dayOfBirth')}</label>
             <input
               type="date"
               className="form-control"
@@ -171,12 +171,12 @@ const SearchPatientPage: React.FC = () => {
                 {loading ? (
                   <>
                     <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                    Searching...
+                    {t('searchPatient.searching')}
                   </>
-                ) : 'Search Patients'}
+                ) : t('searchPatient.title')}
               </button>
               <button type="button" className="btn btn-outline-secondary" onClick={handleClearSearch}>
-                Clear
+                {t('searchPatient.clear')}
               </button>
             </div>
           </div>
@@ -191,22 +191,22 @@ const SearchPatientPage: React.FC = () => {
       
       {searched && !loading && patients.length === 0 && !error && (
         <div className="alert alert-info" role="alert">
-          No patients found matching your criteria.
+          {t('searchPatient.noResults')}
         </div>
       )}
       
       {patients.length > 0 && (
         <>
-          <h3 className="mb-3">Search Results</h3>
+          <h3 className="mb-3">{t('searchPatient.searchResults')}</h3>
           <div className="table-responsive">
             <table className="table table-hover">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Birth Date</th>
-                  <th>Gender</th>
-                  <th>Phone</th>
-                  <th>Actions</th>
+                  <th>{t('searchPatient.searchPatientTable.name')}</th>
+                  <th>{t('searchPatient.searchPatientTable.birthDate')}</th>
+                  <th>{t('searchPatient.searchPatientTable.gender')}</th>
+                  <th>{t('searchPatient.searchPatientTable.phone')}</th>
+                  <th>{t('searchPatient.searchPatientTable.actions')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -224,7 +224,7 @@ const SearchPatientPage: React.FC = () => {
                           className="btn btn-outline-primary" 
                           onClick={() => handleViewPatient(patient.id!)}
                         >
-                          Xem/Chỉnh Sửa
+                          {t('searchPatient.viewEdit')}
                         </button>
                         <button 
                           className="btn btn-outline-danger" 
@@ -247,13 +247,13 @@ const SearchPatientPage: React.FC = () => {
           className="btn btn-success"
           onClick={() => navigate('/patients/new')}
         >
-          Create New Patient
+          {t('searchPatient.createNewPatient')}
         </button>
         <button 
           className="btn btn-link ms-2"
           onClick={() => navigate('/')}
         >
-          Back to Home
+          {t('searchPatient.back')}
         </button>
       </div>
     </div>

@@ -26,5 +26,65 @@
             "allPractitioners": "Tất cả Nhân viên Y tế",
             "allOrganizations": "Tất cả Tổ chức"
         }
+    },
+    "createPatient": {
+        "title": "Tạo Bệnh nhân",
+        "givenName": "Tên",
+        "familyName": "Họ",
+        "dayOfBirth": "Ngày sinh",
+        "gender": "Chọn giới tính",
+        "male": "Nam",
+        "female": "Nũ",
+        "other": "Khác",
+        "unknown": "Không xác định",
+        "phoneNumber": "Số điện thoại",
+        "address": "Địa chỉ",
+        "preferredLanguage": "Ngôn ngữ ưu tiên",
+        "selectLanguage": "Chọn ngôn ngữ",
+        "languages": {
+            "en": "Tiếng Anh",
+            "zh": "Tiếng Trung",
+            "ja": "Tiếng Nhật",
+            "ko": "Tiếng Hàn",
+            "ru": "Tiếng Nga",
+            "ms": "Tiếng Mã Lai",
+            "id": "Tiếng Indonesia",
+            "tl": "Tiếng Tagalog",
+            "vi": "Tiếng Việt",
+            "th": "Tiếng Thái",
+            "my": "Tiếng Miến Điện",
+            "km": "Tiếng Khmer",
+            "lo": "Tiếng Lào"
+        },
+        "createPatient": "Tạo Bệnh nhân"
+    },
+    "searchPatient": {
+        "title": "Tìm kiếm Bệnh nhân",
+        "givenName": "Tên",
+        "familyName": "Họ",
+        "phoneNumber": "Số điện thoại",
+        "dayOfBirth": "Ngày sinh",
+        "searchPatient": "Tìm kiếm Bệnh nhân",
+        "clear": "Xóa",
+        "createNewPatient": "Tạo Bệnh nhân Mới",
+        "back": "Quay lại Trang chủ",
+        "viewEdit": "Xem/Chỉnh Sửa",
+        "searching": "Đang tìm kiếm...",
+        "searchResults": "Kết quả tìm kiếm",
+        "noResults": "Không tìm thấy kết quả nào",
+        "searchPatientTable": {
+            "name": "Họ và tên",
+            "birthDate": "Ngày sinh",
+            "gender": "Giới tính",
+            "phone": "Số điện thoại",
+            "actions": "Thao tác"
+        },
+        "error": {
+            "searchFailed": "Đã xảy ra lỗi khi tìm kiếm. Vui lòng thử lại.",
+            "deleteConfirm": "Bạn có chắc chắn muốn xóa bệnh nhân này không?",
+            "deleteSuccess": "Xóa bệnh nhân thành công",
+            "deleteFailed": "Xóa bệnh nhân thất bại",
+            "emptySearch": "Vui lòng nhập ít nhất một tiêu chí tìm kiếm"
+        }
     }
 }

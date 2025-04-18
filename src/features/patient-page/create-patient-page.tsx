@@ -3,9 +3,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Patient } from "fhir/r4";
 import { patientService } from "./patient-services/patient-service";
 import { useNavigate } from "react-router";
+import { useTranslation } from 'react-i18next';
 
 const CreatePatient: React.FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     givenName: "",
     familyName: "",
@@ -67,58 +69,58 @@ const CreatePatient: React.FC = () => {
 
   return (
     <div className="container mt-5">
-      <h2 className="mb-4">Create Patient</h2>
+      <h2 className="mb-4">{t('createPatient.title')}</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="givenName" className="form-label">Given Name</label>
+          <label htmlFor="givenName" className="form-label">{t('createPatient.givenName')}</label>
           <input type="text" className="form-control" id="givenName" value={formData.givenName} onChange={handleChange} required />
         </div>
         <div className="mb-3">
-          <label htmlFor="familyName" className="form-label">Family Name</label>
+          <label htmlFor="familyName" className="form-label">{t('createPatient.familyName')}</label>
           <input type="text" className="form-control" id="familyName" value={formData.familyName} onChange={handleChange} required />
         </div>
         <div className="mb-3">
-          <label htmlFor="dob" className="form-label">Date of Birth</label>
+          <label htmlFor="dob" className="form-label">{t('createPatient.dayOfBirth')}</label>
           <input type="date" className="form-control" id="dob" value={formData.dob} onChange={handleChange} required />
         </div>
         <div className="mb-3">
-          <label htmlFor="gender" className="form-label">Gender</label>
+          <label htmlFor="gender" className="form-label">{t('createPatient.gender')}</label>
           <select className="form-select" id="gender" value={formData.gender} onChange={handleChange} required>
-            <option value="">Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-            <option value="unknown">Unknown</option>
+            <option value="">{t('createPatient.gender')}</option>
+            <option value="male">{t('createPatient.male')}</option>
+            <option value="female">{t('createPatient.female')}</option>
+            <option value="other">{t('createPatient.other')}</option>
+            <option value="unknown">{t('createPatient.unknown')}</option>
           </select>
         </div>
         <div className="mb-3">
-          <label htmlFor="phone" className="form-label">Phone Number</label>
+          <label htmlFor="phone" className="form-label">{t('createPatient.phoneNumber')}</label>
           <input type="tel" className="form-control" id="phone" value={formData.phone} onChange={handleChange} />
         </div>
         <div className="mb-3">
-          <label htmlFor="address" className="form-label">Address</label>
+          <label htmlFor="address" className="form-label">{t('createPatient.address')}</label>
           <input type="text" className="form-control" id="address" value={formData.address} onChange={handleChange} />
         </div>
         <div className="mb-3">
-          <label htmlFor="language" className="form-label">Preferred Language</label>
+          <label htmlFor="language" className="form-label">{t('createPatient.preferredLanguage')}</label>
           <select className="form-select" id="language" value={formData.language} onChange={handleChange}>
-            <option value="">Select Language</option>
-            <option value="en">English</option>
-            <option value="zh">Chinese</option>
-            <option value="ja">Japanese</option>
-            <option value="ko">Korean</option>
-            <option value="ru">Russian</option>
-            <option value="ms">Malay</option>
-            <option value="id">Indonesian</option>
-            <option value="tl">Tagalog</option>
-            <option value="vi">Vietnamese</option>
-            <option value="th">Thai</option>
-            <option value="my">Burmese</option>
-            <option value="km">Khmer</option>
-            <option value="lo">Lao</option>
+            <option value="">{t('createPatient.selectLanguage')}</option>
+            <option value="en">{t('createPatient.languages.en')}</option>
+            <option value="zh">{t('createPatient.languages.zh')}</option>
+            <option value="ja">{t('createPatient.languages.ja')}</option>
+            <option value="ko">{t('createPatient.languages.ko')}</option>
+            <option value="ru">{t('createPatient.languages.ru')}</option>
+            <option value="ms">{t('createPatient.languages.ms')}</option>
+            <option value="id">{t('createPatient.languages.id')}</option>
+            <option value="tl">{t('createPatient.languages.tl')}</option>
+            <option value="vi">{t('createPatient.languages.vi')}</option>
+            <option value="th">{t('createPatient.languages.th')}</option>
+            <option value="my">{t('createPatient.languages.my')}</option>
+            <option value="km">{t('createPatient.languages.km')}</option>
+            <option value="lo">{t('createPatient.languages.lo')}</option>
           </select>
         </div>
-        <button type="submit" className="btn btn-primary">Create Patient</button>
+        <button type="submit" className="btn btn-primary">{t('createPatient.createPatient')}</button>
       </form>
     </div>
   );
