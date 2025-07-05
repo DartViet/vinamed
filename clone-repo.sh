@@ -52,7 +52,7 @@ REPO_URL=https://github.com/DartViet/vinamed
 TOKEN=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
 GITHUB_REPO_URL=${REPO_URL}
 GITHUB_TOKEN=${TOKEN}
-DESTINATION_DIR=/opt/vinamed
+DESTINATION_DIR=~/monorepo/vinamed
 CLONE_DIR=${DESTINATION_DIR}
 
 # Function to validate GitHub token format
