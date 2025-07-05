@@ -1,0 +1,26 @@
+publish_to: none
+
+name: webserver
+description: A sample command-line application.
+version: 1.0.0
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ^3.8.1
+
+assets:
+  - assets/
+
+# Add regular dependencies here.
+dependencies:
+  http: ^1.4.0
+  shelf: ^1.4.0
+  shelf_router: ^1.1.0
+  sqlite3: ^2.7.6
+  database_models:
+   path: ../packages/database_models
+
+
+dev_dependencies:
+  lints: ^5.0.0
+  test: ^1.24.0

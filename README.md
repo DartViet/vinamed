@@ -1,0 +1,1 @@
+You have to install install-nginx first, then do sudo docker compose up

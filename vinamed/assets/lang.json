@@ -1,0 +1,292 @@
+{
+    "commonLogin": {
+        "en": "login",
+        "vi": "đăng nhập",
+        "zh": "登录"
+    },
+    "commonLogout": {
+        "en": "logout",
+        "vi": "đăng xuất",
+        "zh": "登出"
+    },
+    "title": {
+        "en": "Vinamed - Online Medical Center",
+        "vi": "Trung tâm y tế trực tuyến Vinamed",
+        "zh": "Vinamed - 在线医疗中心"
+    },
+    "userInfo": {
+        "en": "user's infomation",
+        "vi": "thông tin người dùng",
+        "zh": "用户信息"
+    },
+    "healthRecord": {
+        "en": "health record",
+        "vi": "hồ sơ sức khỏe",
+        "zh": "健康记录"
+    },
+    "staff": {
+        "en": "staff",
+        "vi": "nhân viên",
+        "zh": "员工"
+    },
+    "admin": {
+        "en": "admin",
+        "vi": "quản trị viên",
+        "zh": "管理员"
+    },
+    "homePage": {
+        "en": "home page",
+        "vi": "trang chủ",
+        "zh": "主页"
+    },
+    "signUp": {
+        "en": "sign up",
+        "vi": "đăng ký",
+        "zh": "注册"
+    },
+    "signIn": {
+        "en": "sign in",
+        "vi": "đăng nhập",
+        "zh": "登录"
+    },
+    "signOut": {
+        "en": "sign out",
+        "vi": "đăng xuất",
+        "zh": "登出"
+    },
+    "forgotPassword": {
+        "en": "forgot password",
+        "vi": "quên mật khẩu",
+        "zh": "忘记密码"
+    },
+    "passwordNotCorrect": {
+        "en": "password is not correct",
+        "vi": "mật khẩu không chính xác",
+        "zh": "密码不正确"
+    },
+    "email": {
+        "en": "email",
+        "vi": "thư điện tử",
+        "zh": "邮箱"
+    },
+    "emailNotValid": {
+        "en": "email is not valid",
+        "vi": "thư điện tử không hợp lệ",
+        "zh": "邮箱无效"
+    },
+    "password": {
+        "en": "password",
+        "vi": "mật khẩu",
+        "zh": "密码"
+    },
+    "close":{
+        "en": "close",
+        "vi": "đóng",
+        "zh": "关闭"
+    },
+    "passwordNotValid": {
+        "en": "password is not valid, it must not be empty and at least 8 characters long",
+        "vi": "mật khẩu không hợp lệ, không được để trống và phải có ít nhất 8 ký tự",
+        "zh": "密码无效，不能为空且至少8个字符长"
+    },
+    "confirmPasswordNotValid": {
+        "en": "confirm password is not valid, it must be the same as the password entered",
+        "vi": "xác nhận mật khẩu không hợp lệ, nó phải giống với mật khẩu đã nhập",
+        "zh": "确认密码无效，必须与输入的密码相同"
+    },
+    "signinpageWelcome": {
+        "en": "please sign in to continue",
+        "vi": "vui lòng đăng nhập để tiếp tục",
+        "zh": "请登录以继续"
+    },
+    "signupCreateAccount": {
+        "en": "create an account",
+        "vi": "tạo tài khoản",
+        "zh": "创建账户"
+    },
+    "signupConfirmPassword": {
+        "en": "confirm password",
+        "vi": "xác nhận mật khẩu",
+        "zh": "确认密码"
+    },
+    "userAccountCreated": {
+        "en": "user account created successfully",
+        "vi": "tạo tài khoản người dùng thành công",
+        "zh": "用户账户创建成功"
+    },
+    "userInfoFullName": {
+        "en": "full name",
+        "vi": "họ và tên",
+        "zh": "全名"
+    },
+    "userInfoFullNameNotValid": {
+        "en": "full name is not valid, it must not be empty",
+        "vi": "họ và tên không hợp lệ, không được để trống",
+        "zh": "全名无效，不能为空"
+    },
+    "userInfoPhoneNumber": {
+        "en": "phone number",
+        "vi": "số điện thoại",
+        "zh": "电话号码"
+    },
+    "userInfoPhoneNumberNotValid": {
+        "en": "phone number is not valid, it must not be empty and must be a valid phone number",
+        "vi": "số điện thoại không hợp lệ, không được để trống và phải là một số điện thoại hợp lệ",
+        "zh": "电话号码无效，不能为空且必须是有效的电话号码"
+    },
+    "userInfoAddress": {
+        "en": "address",
+        "vi": "địa chỉ",
+        "zh": "地址"
+    },
+    "userInfoAddressNotValid": {
+        "en": "address is not valid, it must not be empty",
+        "vi": "địa chỉ không hợp lệ, không được để trống",
+        "zh": "地址无效，不能为空"
+    },
+    "userInfoDateOfBirth": {
+        "en": "date of birth",
+        "vi": "ngày sinh",
+        "zh": "出生日期"
+    },
+    "userInfoDateOfBirthNotValid": {
+        "en": "date of birth is not valid, it must not be empty",
+        "vi": "ngày sinh không hợp lệ, không được để trống",
+        "zh": "出生日期无效，不能为空"
+    },
+    "userInfoGender": {
+        "en": "gender",
+        "vi": "giới tính",
+        "zh": "性别"
+    },
+    "male": {
+        "en": "male",
+        "vi": "nam",
+        "zh": "男"
+    },
+    "female": {
+        "en": "female",
+        "vi": "nữ",
+        "zh": "女"
+    },
+    "userInfoDateIssued": {
+        "en": "date issued",
+        "vi": "ngày cấp",
+        "zh": "签发日期"
+    },
+    "userInfoDateIssuedNotValid": {
+        "en": "date issued is not valid, it must not be empty",
+        "vi": "ngày cấp không hợp lệ, không được để trống",
+        "zh": "签发日期无效，不能为空"
+    },
+    "userInfoPlaceIssued": {
+        "en": "place issued",
+        "vi": "nơi cấp",
+        "zh": "签发地点"
+    },
+    "userInfoPlaceIssuedNotValid": {
+        "en": "place issued is not valid, it must not be empty",
+        "vi": "nơi cấp không hợp lệ, không được để trống",
+        "zh": "签发地点无效，不能为空"
+    },
+    "userInfoCCCD": {
+        "en": "CCCD number",
+        "vi": "số CCCD",
+        "zh": "CCCD号码"
+    },
+    "userInfoCCCDNotValid": {
+        "en": "CCCD number is not valid, it must not be empty",
+        "vi": "số CCCD không hợp lệ, không được để trống",
+        "zh": "CCCD号码无效，不能为空"
+    },
+    "userInfoCMND": {
+        "en": "CMND number",
+        "vi": "số CMND",
+        "zh": "CMND号码"
+    },
+    "userInfoCMNDNotValid": {
+        "en": "CMND number is not valid, it must not be empty",
+        "vi": "số CMND không hợp lệ, không được để trống",
+        "zh": "CMND号码无效，不能为空"
+    },
+    "userInfoTitle": {
+        "en": "user's information",
+        "vi": "thông tin người dùng",
+        "zh": "用户信息"
+    },
+    "userInfoSelectDate": {
+        "en": "select date",
+        "vi": "chọn ngày",
+        "zh": "选择日期"
+    },
+    "userInfoScanIDQRCode": {
+        "en": "scan CCCD QR code",
+        "vi": "quét mã QR CCCD",
+        "zh": "扫描CCCD二维码"
+    },
+    "qrscanScanning": {
+        "en": "scanning...",
+        "vi": "đang quét...",
+        "zh": "正在扫描..."
+    },
+    "save": {
+        "en": "save",
+        "vi": "lưu",
+        "zh": "保存"
+    },
+    "saveSuccess": {
+        "en": "save successfully",
+        "vi": "lưu thành công",
+        "zh": "保存成功"
+    },
+    "pleaseCheckYourEmail": {
+        "en": "please check your email to verify your account",
+        "vi": "vui lòng kiểm tra email của bạn để xác minh tài khoản",
+        "zh": "请检查您的电子邮件以验证您的帐户"
+    },
+    "cannotFindEmail": {
+        "en": "cannot find email?",
+        "vi": "không tìm thấy email?",
+        "zh": "找不到电子邮件?"
+    },
+    "ok": {
+        "en": "ok",
+        "vi": "chấp nhận",
+        "zh": "好的"
+    },
+    "emailVerificationSent": {
+        "en": "email verification sent",
+        "vi": "xác minh thư điện tử đã được gửi",
+        "zh": "电子邮件验证已发送"
+    },
+    "emailVerificationSentBody": {
+        "en": "A new verification email has been sent to your email address.",
+        "vi": "Một email xác minh mới đã được gửi đến địa chỉ thư điện tử của bạn.",
+        "zh": "一封新的验证电子邮件已发送到您的电子邮件地址。"
+    },
+    "sendVerificationEmail": {
+        "en": "send verification email",
+        "vi": "gửi email xác minh",
+        "zh": "发送验证电子邮件"
+    },
+    "enterEmailToResetPassword" : {
+        "en": "Enter your email to reset your password",
+        "vi": "Nhập email của bạn để đặt lại mật khẩu",
+        "zh": "输入您的电子邮件以重置密码"
+    },
+    "submit": {
+        "en": "submit",
+        "vi": "gửi",
+        "zh": "提交"
+    },
+    "resetPasswordEmailSent": {
+        "en": "Reset password email has been sent, if you do not receive it, please check your spam folder or try again.",
+        "vi": "Thư điện tử đặt lại mật khẩu đã được gửi, nếu bạn không nhận được, hãy kiểm tra thư mục spam hoặc thử lại.",
+        "zh": "重置密码的电子邮件已发送，如果您没有收到，请检查您的垃圾邮件文件夹或重试。"
+    },
+    "invalidQRCode": {
+        "en": "Invalid QR code",
+        "vi": "Mã QR không hợp lệ",
+        "zh": "无效的二维码"
+    }
+}
