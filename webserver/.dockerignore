@@ -1,0 +1,38 @@
+# Ignore unnecessary files during Docker build
+.git
+.gitignore
+README.md
+Dockerfile
+.dockerignore
+
+# Dart/Flutter specific
+.dart_tool/
+.packages
+pubspec.lock
+build/
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Other monorepo projects (we only need webserver and database_models)
+vinamed/
+nginx/
+pocketbase/
+.github/
+
+# Keep only webserver and packages/database_models
+!webserver/
+!packages/database_models/

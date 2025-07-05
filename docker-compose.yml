@@ -35,6 +35,31 @@ services:
       - pocketbase_data:/pb/pb_data
     restart: always
 
+  
+  dart_webserver:
+    build:
+      context: .  # Build from monorepo root to access database_models package
+      dockerfile: webserver/Dockerfile
+    container_name: dart_webserver
+    hostname: dartserver.local
+    ports:
+      - "8082:8080"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8080
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    volumes:
+      - webserver_assets:/app/assets
+    depends_on:
+      - fhir
+      - pocketbase
+
 
   #nginx:
   #  image: nginx:latest
@@ -56,3 +81,4 @@ configs:
 volumes:
   hapi-postgres-data:
   pocketbase_data:
+  webserver_assets:
