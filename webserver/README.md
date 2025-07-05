@@ -1,6 +1,6 @@
 # Dart Shelf Backend Server
 
-A basic HTTP server built with Dart and the Shelf framework.
+A basic HTTP server built with Dart and the dart Shelf framework.
 
 ## Features
 
