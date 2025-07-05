@@ -13,6 +13,10 @@ echo "Starting nginx installation and configuration..."
 echo "Domain: $DOMAIN"
 echo "Email: $EMAIL"
 
+#####################################################################
+######################## Install and configure nginx ################
+#####################################################################
+
 # Update package lists
 echo "Updating package lists..."
 apt-get update
@@ -97,6 +101,11 @@ systemctl status nginx --no-pager
 # Show listening ports
 echo "Nginx is now listening on the following ports:"
 ss -tlnp | grep nginx
+
+
+##############################################################################
+####################### Install and configure Certbot ########################
+##############################################################################
 
 # Install and configure Certbot for Let's Encrypt SSL
 echo ""
@@ -205,6 +214,10 @@ echo "Installing NoIP Dynamic DNS client..."
 # Install build essentials including GCC for compiling NoIP client
 echo "Installing build essentials (gcc, make, etc.)..."
 apt-get install -y build-essential
+
+#################################################################################
+######################## Install NoIP Dynamic DNS Client ########################
+#################################################################################
 
 # Download NoIP client
 cd /tmp
