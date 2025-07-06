@@ -29,8 +29,8 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Create a non-root user
-RUN addgroup -g 1001 -S dartuser && \
-    adduser -S dartuser -u 1001 -G dartuser
+RUN groupadd -g 1001 dartuser && \
+    useradd -r -u 1001 -g dartuser dartuser
 
 # Set the working directory
 WORKDIR /app
