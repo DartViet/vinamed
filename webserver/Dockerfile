@@ -19,17 +19,14 @@ RUN dart pub get
 RUN dart compile exe bin/webserver.dart -o webserver
 
 # Production stage
-FROM alpine:latest
+FROM ubuntu:24.04
 
 # Install minimal runtime dependencies
-RUN apk add --no-cache \
+RUN apt-get update && apt-get install -y \
     ca-certificates \
-    libc6-compat \
-    sqlite \
-    sqlite-dev \
-    sqlite-libs && \
-    # Ensure libsqlite3.so is available in standard locations
-    ln -s /usr/lib/libsqlite3.so.0 /usr/lib/libsqlite3.so 2>/dev/null || true
+    libsqlite3-0 \
+    libsqlite3-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 # Create a non-root user
 RUN addgroup -g 1001 -S dartuser && \
