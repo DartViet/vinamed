@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:webserver/goodies/api_extension.dart';
+import 'package:webserver/update_server/cpt.dart';
 import 'package:webserver/update_server/fda_drug_code.dart';
 import 'package:webserver/update_server/icd10_dhs.dart';
 import 'package:webserver/update_server/loinc.dart';
@@ -43,6 +44,8 @@ Future<void> updateCurrentDatabase() async {
   await Icd10cm.instance.getItemFromFile("assets/${Variables.instance.icd10cmFile}", Variables.instance.icd10cmTable);
   await Icd10cm.instance.getItemFromFile("assets/${Variables.instance.icd10pcsFile}", Variables.instance.icd10pcsTable);
   await Icd10cm.instance.getItemFromFile("assets/${Variables.instance.dhsFile}", Variables.instance.dhsTable);
+  // Add a more codes to dhs table
+  await Cpt.instance.getItemFromFile("assets/${Variables.instance.cptFolder}", Variables.instance.dhsTable);
   await Loinc.instance.getItemFromFile("assets/${Variables.instance.lonicFile}", Variables.instance.lonicTable);
   await FdaDrug.instance.getItemFromFile("assets/${Variables.instance.fdaDrugFile}", Variables.instance.fdaDrugTable);
 

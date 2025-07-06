@@ -11,6 +11,7 @@ class Variables {
   String icd10cmFile = 'icd10cm.txt';
   String icd10pcsFile = 'icd10pcs.txt';
   String dhsFile = 'dhs.txt';
+  String cptFolder = 'cpt';
   String lonicFile = 'Loinc.csv';
   String fdaDrugFile = 'fda_drug.txt';
 
