@@ -25,7 +25,11 @@ FROM alpine:latest
 RUN apk add --no-cache \
     ca-certificates \
     libc6-compat \
-    sqlite
+    sqlite \
+    sqlite-dev \
+    sqlite-libs && \
+    # Ensure libsqlite3.so is available in standard locations
+    ln -s /usr/lib/libsqlite3.so.0 /usr/lib/libsqlite3.so 2>/dev/null || true
 
 # Create a non-root user
 RUN addgroup -g 1001 -S dartuser && \
