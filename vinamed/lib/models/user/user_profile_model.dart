@@ -1,4 +1,4 @@
-import 'package:ltdmed/goodies/server_ip.dart';
+import 'package:ltdmed/goodies/pocketbase_server.dart';
 
 class UserProfileModel {
   String userId;

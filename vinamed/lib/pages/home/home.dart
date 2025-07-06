@@ -48,8 +48,8 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.all(10),
                 children: <Widget>[
                   getCard(LanguageService.instance.userInfo, NamedRoutes.userInfo, Icons.person),
-                  getCard(LanguageService.instance.healthRecord, NamedRoutes.home, Icons.home),
-                  getCard(LanguageService.instance.healthRecord, "/healthRecord", Icons.health_and_safety),
+                  getCard(LanguageService.instance.homePage, NamedRoutes.home, Icons.home),
+                  getCard(LanguageService.instance.healthRecord, NamedRoutes.healthRecords, Icons.health_and_safety),
                   getCard(LanguageService.instance.admin, "/admin", Icons.admin_panel_settings),
                 ],
               ),

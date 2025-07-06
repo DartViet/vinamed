@@ -32,6 +32,10 @@ dependencies:
     sdk: flutter
   mobile_scanner: ^7.0.1
   pocketbase: ^0.23.0
+  database_models:
+   path: ../packages/database_models
+  http: ^1.4.0
+  
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

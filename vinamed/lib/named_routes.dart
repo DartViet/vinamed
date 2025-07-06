@@ -7,6 +7,7 @@ class NamedRoutes {
   static const String qrCodeScanner = '/qrCodeScanner';
   static const String verificationEmail = '/verificationEmail';
   static const String forgotPassword = '/forgotPassword';
+  static const String healthRecords = '/healthRecords';
   // Add more named routes as needed
 
   // Prevent instantiation

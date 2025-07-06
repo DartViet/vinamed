@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:ltdmed/appbar/appbar.dart';
-import 'package:ltdmed/goodies/server_ip.dart';
+import 'package:ltdmed/goodies/pocketbase_server.dart';
 import 'package:ltdmed/l10n/language_service.dart';
 import 'package:ltdmed/named_routes.dart';
 import 'package:ltdmed/widgets/fsnackbar.dart';

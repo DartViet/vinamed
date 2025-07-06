@@ -40,7 +40,7 @@ class _MobileScannerSimpleState extends State<MobileScannerSimple> {
         try {
           CitizenCardInfo.fromBarcodeString(_barcode!.displayValue!);
           UserProfileModel.clear();
-          Navigator.pushNamed(context, NamedRoutes.userInfo);
+          Navigator.pushReplacementNamed(context, NamedRoutes.userInfo);
         } catch (e) {
           showFSnackBar(context, LanguageService.instance.invalidQRCode);
         }

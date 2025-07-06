@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:ltdmed/drawer/drawer_modelview.dart';
 import 'package:ltdmed/l10n/language_service.dart';
-import 'package:ltdmed/goodies/server_ip.dart';
+import 'package:ltdmed/goodies/pocketbase_server.dart';
 import 'package:ltdmed/models/user/user_model.dart';
 import 'package:ltdmed/models/user/user_profile_model.dart';
 import 'package:ltdmed/named_routes.dart';
@@ -36,21 +36,21 @@ class FDrawer {
                 leading: const Icon(Icons.home),
                 title: Text(LanguageService.instance.homePage),
                 onTap: () {
-                  Navigator.pushNamed(context, NamedRoutes.home);
+                  Navigator.pushReplacementNamed(context, NamedRoutes.home);
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.person),
                 title: Text(LanguageService.instance.userInfo),
                 onTap: () {
-                  Navigator.pushNamed(context, NamedRoutes.userInfo);
+                  Navigator.pushReplacementNamed(context, NamedRoutes.userInfo);
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.health_and_safety),
                 title: Text(LanguageService.instance.healthRecord),
                 onTap: () {
-                  // Handle health record action
+                  Navigator.pushReplacementNamed(context, NamedRoutes.healthRecords);
                 },
               ),
               ListTile(

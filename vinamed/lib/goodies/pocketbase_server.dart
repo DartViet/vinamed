@@ -47,11 +47,11 @@ class PocketBaseServer {
   }
 
   Future<RecordModel> createItem(String itemName, Map<String, dynamic> body) async {
-    return pb.collection(itemName).create(body: body);
+    return await pb.collection(itemName).create(body: body);
   }
 
   Future<RecordModel> updateItem(String itemName, String itemId, Map<String, dynamic> body) async {
-    return pb.collection(itemName).update(itemId, body: body);
+    return await pb.collection(itemName).update(itemId, body: body);
   }
 
   Future<bool> recordExistsByFilter(String collectionName, String filter) async {

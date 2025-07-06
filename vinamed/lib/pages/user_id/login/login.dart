@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:ltdmed/appbar/appbar.dart';
 import 'package:ltdmed/goodies/email_regex.dart';
 import 'package:ltdmed/l10n/language_service.dart';
-import 'package:ltdmed/goodies/server_ip.dart';
+import 'package:ltdmed/goodies/pocketbase_server.dart';
 import 'package:ltdmed/models/user/user_model.dart';
 import 'package:ltdmed/models/user/user_profile_model.dart';
 import 'package:ltdmed/named_routes.dart';
@@ -119,7 +119,7 @@ class LoginState extends State<Login> {
                                             .getUserProfile(value.record.id)
                                             .then((_) {
                                               if (UserProfileModel.instance.userId.isEmpty) {
-                                                Navigator.pushNamed(context, NamedRoutes.userInfo);
+                                                Navigator.pushReplacementNamed(context, NamedRoutes.userInfo);
                                               } else {
                                                 Navigator.pushNamed(context, NamedRoutes.home);
                                               }
@@ -127,7 +127,7 @@ class LoginState extends State<Login> {
                                             .catchError((error) {
                                               if (error is ClientException) {
                                                 showFSnackBar(context, error.response['message'] ?? error.toString());
-                                                Navigator.pushNamed(context, NamedRoutes.userInfo);
+                                                Navigator.pushReplacementNamed(context, NamedRoutes.userInfo);
                                               } else {
                                                 // Handle other errors
                                                 showFSnackBar(context, error.toString());
