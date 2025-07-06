@@ -24,7 +24,8 @@ FROM alpine:latest
 # Install minimal runtime dependencies
 RUN apk add --no-cache \
     ca-certificates \
-    libc6-compat
+    libc6-compat \
+    sqlite
 
 # Create a non-root user
 RUN addgroup -g 1001 -S dartuser && \
