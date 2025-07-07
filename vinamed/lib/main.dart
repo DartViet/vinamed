@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       title: "Vinamed",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorScheme: lightColorScheme),
-      home: HomePage(),
+      home: const Login(),
       //home: HealthRecord(),
       routes: <String, WidgetBuilder>{
         NamedRoutes.home: (BuildContext context) => HomePage(),

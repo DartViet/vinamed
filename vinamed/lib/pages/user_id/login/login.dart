@@ -30,6 +30,11 @@ class LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    // Pop all previous pages to clear navigation stack
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Navigator.of(context).popUntil((route) => route.isFirst);
+    });
+
     if (UserModel.instance.email.isNotEmpty) {
       // If the user is already logged in, redirect to home
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -121,7 +126,7 @@ class LoginState extends State<Login> {
                                               if (UserProfileModel.instance.userId.isEmpty) {
                                                 Navigator.pushReplacementNamed(context, NamedRoutes.userInfo);
                                               } else {
-                                                Navigator.pushNamed(context, NamedRoutes.home);
+                                                Navigator.pushReplacementNamed(context, NamedRoutes.home);
                                               }
                                             })
                                             .catchError((error) {
