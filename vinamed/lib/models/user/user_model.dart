@@ -36,7 +36,6 @@ class UserModel {
   }
 
   static void initialize(Map<String, dynamic> json) {
-    print('Initializing UserModel with data: $json');
     _instance = UserModel._(
       avatar: json['avatar'] ?? '',
       collectionId: json['collectionId'] ?? '',
@@ -49,8 +48,6 @@ class UserModel {
       updated: DateTime.parse(json['updated'] ?? DateTime.now().toString()),
       verified: json['verified'] ?? false,
     );
-
-    print('UserModel initialized: ${_instance!.toJson()}');
   }
 
   static void clear() {
