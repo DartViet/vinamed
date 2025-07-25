@@ -219,6 +219,10 @@ apt-get install -y build-essential
 ######################## Install NoIP Dynamic DNS Client ########################
 #################################################################################
 
+# Stop NoIP service if running
+echo "Stopping NoIP service if running..."
+systemctl stop noip || true
+
 # Download NoIP client
 cd /tmp
 wget https://www.noip.com/client/linux/noip-duc-linux.tar.gz
@@ -243,6 +247,10 @@ User=root
 [Install]
 WantedBy=multi-user.target
 EOF
+
+# Setup NoIP client configuration
+echo "Configuring NoIP client..."
+
 
 # Reload systemd and enable NoIP service
 systemctl daemon-reload

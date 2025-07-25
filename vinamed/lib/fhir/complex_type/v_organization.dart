@@ -7,5 +7,4 @@ class VOrganization {
   Vstring? name; // Name of the organization
   List<Vstring>? alias; // Other names for the organization
   Vmarkdown? description; // Description of the organization
-  waetrwererwwre
 }

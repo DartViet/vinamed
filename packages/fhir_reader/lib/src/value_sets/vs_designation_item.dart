@@ -1,4 +1,4 @@
-import 'package:fhir_reader/src/value_sets/vs_use1.dart';
+import 'package:fhir_reader/src/value_sets/vs_use.dart';
 
 class VsDesignationItem {
   VsUse use;

@@ -113,7 +113,10 @@ class WebServer {
       return Response.ok(jsonEncode(responseData), headers: {'Content-Type': 'application/json'});
     } catch (e) {
       final errorData = {'error': 'Failed to create user: $e'};
-      return Response.internalServerError(body: jsonEncode(errorData), headers: {'Content-Type': 'application/json'});
+      return Response.internalServerError(
+        body: jsonEncode(errorData),
+        headers: {'Content-Type': 'application/json'},
+      );
     }
   }
 
@@ -122,7 +125,10 @@ class WebServer {
 
     if (userId == null) {
       final errorData = {'error': 'Invalid user ID'};
-      return Response.badRequest(body: jsonEncode(errorData), headers: {'Content-Type': 'application/json'});
+      return Response.badRequest(
+        body: jsonEncode(errorData),
+        headers: {'Content-Type': 'application/json'},
+      );
     }
 
     // Mock user data
@@ -135,7 +141,10 @@ class WebServer {
 
   Future<void> start({String host = 'localhost', int port = 8080}) async {
     // Create a pipeline with logging middleware
-    final pipeline = Pipeline().addMiddleware(logRequests()).addMiddleware(_corsMiddleware()).addHandler(_router);
+    final pipeline = Pipeline()
+        .addMiddleware(logRequests())
+        .addMiddleware(_corsMiddleware())
+        .addHandler(_router.call);
 
     _server = await serve(pipeline, host, port);
     print('🚀 Server running on http://$host:$port');

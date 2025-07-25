@@ -12,6 +12,10 @@ class VCodeableConcept {
   }
 
   factory VCodeableConcept.fromJson(Map<String, dynamic> json) {
-    return VCodeableConcept(coding: (json['coding'] as List).map((c) => VCoding.fromJson(c as Map<String, dynamic>)).toList(), text: json['text'] as String);
+    return VCodeableConcept(
+      coding:
+          (json['coding'] as List).map((c) => VCoding.fromJson(c as Map<String, dynamic>)).toList(),
+      text: json['text'] as String,
+    );
   }
 }

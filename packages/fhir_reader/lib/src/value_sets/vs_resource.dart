@@ -69,7 +69,7 @@ class VsResource {
     return VsResource(
       resourceType: json['resourceType'],
       id: json['id'],
-      meta: json['meta'] != null ? VSMeta.fromJson(json['meta']) : null,
+      meta: json['meta'] != null ? VsMeta.fromJson(json['meta']) : null,
       text: json['text'] != null ? VsText.fromJson(json['text']) : null,
       extension: json['extension'] != null
           ? (json['extension'] as List).map((e) => VSExtensionItem.fromJson(e)).toList()
